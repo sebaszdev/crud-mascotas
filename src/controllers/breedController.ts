@@ -5,7 +5,7 @@ import { breedRepository } from "../repositories/breedRepository";
 import type { Breed } from "../entities/breedEntity";
 import { BreedSchema } from "../entities/breedEntity";
 
-export const studentController = {
+export const breedController = {
   createBreed: async (req: Request, res: Response) => {
     try {
       const input = { ...req.body } as Record<string, unknown>;

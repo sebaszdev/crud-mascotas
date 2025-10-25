@@ -5,8 +5,8 @@ import { petRepository } from "../repositories/petRepository";
 import type { Pet } from "../entities/petEntity";
 import { PetSchema } from "../entities/petEntity";
 
-export const studentController = {
-  createStudent: async (req: Request, res: Response) => {
+export const petController = {
+  createPet: async (req: Request, res: Response) => {
     try {
       const input = { ...req.body } as Record<string, unknown>;
       if (typeof input.fechaNacimiento === "string" && input.fechaNacimiento.length > 0) {
@@ -32,7 +32,7 @@ export const studentController = {
       return res.status(500).json({ message: "Error interno", error: String(err) });
     }
   },
-  readAllStudents: async (req: Request, res: Response) => {
+  readAllPets: async (req: Request, res: Response) => {
     try {
       const page = req.query.page ? Number(req.query.page) : 1;
       const pageSize = req.query.pageSize ? Number(req.query.pageSize) : 10;
@@ -46,7 +46,7 @@ export const studentController = {
     }
   },
 
-  readStudentById: async (req: Request, res: Response) => {
+  readPetById: async (req: Request, res: Response) => {
     try {
       const id = Number(req.params.id);
       if (Number.isNaN(id) || id <= 0) return res.status(400).json({ message: "ID inválido" });
@@ -60,7 +60,7 @@ export const studentController = {
     }
   },
 
-  updateStudent: async (req: Request, res: Response) => {
+  updatePet: async (req: Request, res: Response) => {
     try {
       const id = Number(req.params.id);
       if (Number.isNaN(id) || id <= 0) return res.status(400).json({ message: "ID inválido" });
@@ -94,7 +94,7 @@ export const studentController = {
     }
   },
 
-  deleteStudent: async (req: Request, res: Response) => {
+  deletePet: async (req: Request, res: Response) => {
     try {
       const id = Number(req.params.id);
       if (Number.isNaN(id) || id <= 0) return res.status(400).json({ message: "ID inválido" });
