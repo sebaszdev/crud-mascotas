@@ -1,1 +1,3 @@
-console.log("hola");
+import { app } from "./presentation/server";
+
+// empezar el servidor
